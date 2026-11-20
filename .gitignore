@@ -1,0 +1,13 @@
+node_modules/
+.npm-cache/
+.browser-cache/
+dist/
+.env
+.env.*
+!.env.example
+coverage/
+playwright-report/
+test-results/
+.impeccable/review/
+.impeccable/questions/
+.DS_Store

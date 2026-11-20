@@ -1,0 +1,74 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-11-20T11:07:06Z",
+  "title": "Design System: 飞书邮箱助手",
+  "extensions": {
+    "colorMeta": {
+      "navy": { "role": "secondary", "displayName": "深海蓝页头" },
+      "primary": { "role": "primary", "displayName": "办公操作蓝" },
+      "page": { "role": "neutral", "displayName": "蓝灰页面底色" },
+      "focus": { "role": "primary", "displayName": "可见焦点蓝" }
+    },
+    "typographyMeta": {
+      "headline": { "displayName": "任务标题", "purpose": "说明当前工具的主要任务，不作为装饰性大标题。" },
+      "data": { "displayName": "工号与邮箱", "purpose": "仅用于可复制的数据、工号和格式示例。" }
+    },
+    "shadows": [
+      { "name": "picker", "value": "0 16px 56px #102c4933", "purpose": "仅用于演示选择器浮层；主工作面无阴影。" }
+    ],
+    "motion": [
+      { "name": "button-colors", "value": "background-color 140ms ease-out, color 140ms ease-out", "purpose": "按钮状态变化。" },
+      { "name": "loading", "value": "spin 1s linear infinite", "purpose": "明确表示加载；reduced-motion 下关闭。" }
+    ],
+    "breakpoints": [
+      { "name": "compact", "value": "1000px" },
+      { "name": "stacked", "value": "740px" }
+    ]
+  },
+  "components": [
+    {
+      "name": "主操作按钮", "kind": "button", "refersTo": "button-primary",
+      "description": "蓝色主操作，复制成功时由产品状态切换为成功反馈。",
+      "html": "<button class=\"ds-primary\">查询企业邮箱</button>",
+      "css": ".ds-primary{background:var(--blue,#245fc7);color:#fff;border:0;border-radius:6px;padding:10px 16px;min-height:39px;font:550 13px -apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC',sans-serif;cursor:pointer;transition:background-color 140ms ease-out,color 140ms ease-out}.ds-primary:hover{background:var(--blue-hover,#174da9)}.ds-primary:focus-visible{outline:3px solid #4d7dc6;outline-offset:3px}.ds-primary:disabled{opacity:.48;cursor:not-allowed}@media(prefers-reduced-motion:reduce){.ds-primary{transition:none}}"
+    },
+    {
+      "name": "工号输入框", "kind": "input", "refersTo": "input",
+      "description": "保留前导零的多行输入，明确占位文字与键盘焦点。",
+      "html": "<label class=\"ds-input-label\">工号列表<textarea class=\"ds-input\" placeholder=\"一行一个工号\"></textarea></label>",
+      "css": ".ds-input-label{display:block;color:#1f3447;font:14px -apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC',sans-serif}.ds-input{display:block;width:calc(100% - 34px);min-height:100px;margin-top:8px;padding:14px 16px;border:1px solid #becddb;border-radius:7px;background:#fff;color:#213e5b;font:14px/1.9 'SFMono-Regular',Consolas,monospace;resize:vertical;caret-color:var(--blue,#245fc7)}.ds-input::placeholder{color:#586d83;opacity:1}.ds-input:focus-visible{outline:3px solid #4d7dc6;outline-offset:3px;border-color:var(--blue,#245fc7)}"
+    },
+    {
+      "name": "查询方式标签", "kind": "nav", "refersTo": "tabs",
+      "description": "标准标签样式，蓝色文字和底线同时指示选中。",
+      "html": "<nav class=\"ds-tabs\" aria-label=\"查询方式示例\"><button class=\"ds-tab ds-selected\">按工号查询</button><button class=\"ds-tab\">选择成员 / 部门</button></nav>",
+      "css": ".ds-tabs{display:flex;gap:24px;border-bottom:1px solid var(--line,#dce4ec)}.ds-tab{border:0;border-bottom:2px solid transparent;background:transparent;color:var(--muted,#607185);font:14px -apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC',sans-serif;padding:0 0 13px;cursor:pointer}.ds-tab.ds-selected{color:var(--blue,#245fc7);border-bottom-color:var(--blue,#245fc7);font-weight:600}.ds-tab:hover{color:var(--blue,#245fc7)}.ds-tab:focus-visible{outline:3px solid #4d7dc6;outline-offset:3px}"
+    },
+    {
+      "name": "已选成员标签", "kind": "chip", "refersTo": "chip",
+      "description": "紧凑标签携带明确的移除操作。",
+      "html": "<span class=\"ds-chip\">演示成员<button aria-label=\"移除演示成员\"><svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.8\" aria-hidden=\"true\"><path d=\"M18 6 6 18M6 6l12 12\"/></svg></button></span>",
+      "css": ".ds-chip{display:inline-flex;align-items:center;gap:6px;padding:5px 6px 5px 10px;background:#f0f3f7;color:#40576e;border-radius:5px;font:12px -apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC',sans-serif}.ds-chip button{display:inline-flex;border:0;background:none;padding:4px;border-radius:3px;color:#63788e;cursor:pointer}.ds-chip button:hover{background:#d8e1ec;color:#163958}.ds-chip button:focus-visible{outline:3px solid #4d7dc6;outline-offset:3px}"
+    },
+    {
+      "name": "工作区容器", "kind": "card", "refersTo": "workspace",
+      "description": "白色工作面依靠描边而非阴影建立层级。",
+      "html": "<section class=\"ds-workspace\"><h2>邮箱集合</h2><p>去重 · 空格分隔</p></section>",
+      "css": ".ds-workspace{background:#fff;border:1px solid var(--line,#dce4ec);border-radius:var(--radius,12px);padding:26px 28px;color:#1f3447;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC',sans-serif}.ds-workspace h2{font-size:17px;font-weight:650;line-height:1.5;margin:0}.ds-workspace p{font-size:12px;color:var(--muted,#607185);margin:12px 0 0}"
+    },
+    {
+      "name": "结果汇总条", "kind": "custom", "refersTo": "result-summary",
+      "description": "按输入、人员、邮箱顺序汇总真实数量。以下数字仅为演示。",
+      "html": "<div class=\"ds-summary\" aria-label=\"演示结果汇总\"><span>输入 <strong>4</strong> 项</span><span aria-hidden=\"true\">›</span><span>匹配 <strong>4</strong> 人</span><span aria-hidden=\"true\">›</span><span class=\"ds-final\"><strong>3</strong> 个邮箱</span></div>",
+      "css": ".ds-summary{display:flex;flex-wrap:wrap;align-items:center;gap:8px;padding:10px 12px;background:#edf4f3;color:#5a6c80;border-radius:6px;font:12px -apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC',sans-serif}.ds-summary strong{font-weight:650;font-variant-numeric:tabular-nums}.ds-final{color:var(--green,#22664e)}"
+    }
+  ],
+  "narrative": {
+    "northStar": "通讯录索引",
+    "overview": "面向办公场景的轻量工具界面：深蓝页头建立应用识别，浅底与白色工作区承载输入和结果。视觉表达服从标准表单、标签切换、清单和明确反馈，不以装饰取代任务信息。",
+    "keyCharacteristics": ["浅底、深蓝页头与蓝色主操作。", "紧凑清单、清晰分隔与单一结果出口。", "中文系统字体负责阅读，等宽字体仅用于工号和邮箱数据。", "成功、待确认和错误同时使用颜色与文字表达。"],
+    "rules": [],
+    "dos": ["Do 保持浅底深蓝办公方向和标准表单操作习惯。", "Do 用清晰文字区分演示、授权、查询、异常和复制状态。", "Do 将工号、邮箱数据与普通说明文字分开排版。", "Do 在更改颜色后检查真实相邻背景上的文本和焦点对比度。"],
+    "donts": ["Don't 以个人邮箱或虚构结果掩盖企业邮箱缺失。", "Don't 将数据状态仅编码为颜色。", "Don't 为普通工作区叠加装饰性阴影或嵌套卡片。", "Don't 让长邮箱或移动端说明文字撑出容器。"]
+  }
+}
